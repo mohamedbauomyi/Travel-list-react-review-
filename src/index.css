@@ -1,0 +1,304 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand:wght@400;500;600;700&display=swap");
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* ── Design Tokens ── */
+:root {
+  --clr-sun: #f4a226;
+  --clr-orange: #e5771f;
+  --clr-sand: #ffebb3;
+  --clr-brown: #5a3e2b;
+  --clr-teal: #76c7ad;
+  --clr-teal-dark: #5aad93;
+  --clr-white: #ffffff;
+  --clr-bg: #fef6e4;
+
+  --shadow-sm: 0 2px 8px rgba(90, 62, 43, 0.12);
+  --shadow-md: 0 4px 20px rgba(90, 62, 43, 0.18);
+  --shadow-lg: 0 8px 40px rgba(90, 62, 43, 0.22);
+
+  --radius-sm: 0.8rem;
+  --radius-md: 1.6rem;
+  --radius-pill: 10rem;
+
+  --transition: 0.22s ease;
+}
+
+/* ── Body ── */
+body {
+  font-size: 1.6rem;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  color: var(--clr-brown);
+  background: linear-gradient(135deg, #fef6e4 0%, #fde8c0 100%);
+  min-height: 100vh;
+}
+
+/* ── App Grid ── */
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+/* ── Logo / Header ── */
+header,
+.logo {
+  background: linear-gradient(135deg, var(--clr-sun) 0%, var(--clr-orange) 100%);
+  padding: 3.2rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before,
+.logo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(255, 255, 255, 0.15), transparent 60%);
+  pointer-events: none;
+}
+
+h1 {
+  font-family: "Monoton", cursive;
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  word-spacing: 20px;
+  color: var(--clr-brown);
+  text-shadow: 3px 3px 0 rgba(255, 255, 255, 0.35),
+               0 4px 16px rgba(90, 62, 43, 0.25);
+  position: relative;
+}
+
+/* ── Add Form ── */
+.add-form {
+  background: linear-gradient(135deg, var(--clr-orange) 0%, #d4601a 100%);
+  padding: 2.4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  z-index: 1;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--clr-white);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+/* ── Form Controls ── */
+button,
+select,
+input {
+  background-color: var(--clr-sand);
+  color: var(--clr-brown);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 1rem 2.4rem;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition),
+              background-color var(--transition);
+  outline: none;
+}
+
+button:hover,
+select:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+input::placeholder {
+  color: rgba(90, 62, 43, 0.45);
+}
+
+input:focus {
+  box-shadow: 0 0 0 3px rgba(244, 162, 38, 0.5);
+}
+
+select:focus {
+  box-shadow: 0 0 0 3px rgba(244, 162, 38, 0.5);
+}
+
+.add-form button {
+  background: linear-gradient(135deg, var(--clr-teal) 0%, var(--clr-teal-dark) 100%);
+  color: var(--clr-white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+
+.add-form button:hover {
+  background: linear-gradient(135deg, var(--clr-teal-dark) 0%, #4a9d83 100%);
+}
+
+/* ── Packing List ── */
+.list {
+  background: linear-gradient(180deg, #3e2b1d 0%, var(--clr-brown) 100%);
+  color: var(--clr-sand);
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.list ul {
+  list-style: none;
+  width: min(90%, 1000px);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.2rem;
+  align-content: start;
+}
+
+/* ── List Item ── */
+.list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 235, 179, 0.08);
+  border: 1px solid rgba(255, 235, 179, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1.4rem;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.list li:hover {
+  background: rgba(255, 235, 179, 0.14);
+  transform: translateX(3px);
+}
+
+.list li span {
+  font-size: 1.6rem;
+  flex: 1;
+  transition: opacity var(--transition);
+}
+
+.list li span.packed {
+  text-decoration: line-through;
+  opacity: 0.45;
+  color: var(--clr-teal);
+}
+
+/* ── Checkbox ── */
+input[type="checkbox"] {
+  height: 1.8rem;
+  width: 1.8rem;
+  accent-color: var(--clr-teal);
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+  border-radius: 4px;
+  box-shadow: none;
+  transition: none;
+}
+
+/* ── Delete Button ── */
+.list li button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-sm);
+  transform: none;
+  box-shadow: none;
+  transition: background var(--transition), transform var(--transition);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.list li button:hover {
+  background: rgba(229, 119, 31, 0.3);
+  transform: scale(1.2);
+}
+
+/* ── Actions Bar ── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.actions button,
+.list select {
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.actions button {
+  background: linear-gradient(135deg, #c0392b, #96281b);
+  color: var(--clr-white);
+}
+
+.actions button:hover {
+  background: linear-gradient(135deg, #96281b, #7d2218);
+}
+
+/* ── Stats Footer ── */
+.stats {
+  background: linear-gradient(135deg, var(--clr-teal) 0%, var(--clr-teal-dark) 100%);
+  color: var(--clr-brown);
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.8rem;
+  padding: 2.8rem 2rem;
+  box-shadow: 0 -4px 16px rgba(90, 62, 43, 0.12);
+  letter-spacing: 0.3px;
+}
+
+.stats em {
+  font-style: normal;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .add-form {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  .list ul {
+    grid-template-columns: 1fr;
+    width: 95%;
+  }
+}
