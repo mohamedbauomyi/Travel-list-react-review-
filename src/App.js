@@ -31,8 +31,8 @@ export default function App() {
   }
   return (
     <div className="app">
-      <Form handleAddItem={handleAddItem} />
       <Logo />
+      <Form handleAddItem={handleAddItem} />
       <Parkinglist
         items={items}
         onDeleteItem={handleDeleteItem}
